@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c297786da9d2584aad53ad795fd2950, type: 3}
+  m_Name: A8
+  m_EditorClassIdentifier: 
+  storyText: "A8. Evesdropping\r\nYou slink through the machinery towards 2 skanky
+    looking men. The tall, scrawny one is carrying an oversized gas-canister-powered
+    arrow shooter, while the shorter dumpy man has strapped to him at least a dozen
+    small glass bottles with grey liquid inside.\r\n\r\nThe stout fellow finishes
+    cranking a large valve (clockwise you notice) and then both men dash off with
+    much haste.\r\n\r\nWhat to do?\r\n\r\n1. Quick, uncrank that valve, they were
+    clearly up to no good.\r\n2. Chase the men."
+  nextStates:
+  - {fileID: 11400000, guid: 789a2924fa3d90d4699b30930c122bb0, type: 2}
+  - {fileID: 11400000, guid: af7fbfa97efd9544f97ad7935b94279f, type: 2}
