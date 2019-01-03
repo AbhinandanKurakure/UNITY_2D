@@ -10,17 +10,24 @@ public class Ball : MonoBehaviour {
     [SerializeField] float pushX=2f;
     [SerializeField] float pushY =15f;
     [SerializeField] AudioClip[] ballSounds;
+    
+    
     //state
     Vector2 paddleToBallVector;
     bool hasStarted =false;
 
     //Cached component Reference
     AudioSource myAudioSource;
+   
     
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+
         paddleToBallVector = transform.position - paddle1.transform.position;
         myAudioSource = GetComponent<AudioSource>();
+       
     }
 	
 	
@@ -51,6 +58,7 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (hasStarted == true)
         {
            // Debug.Log(collision.gameObject.name);
