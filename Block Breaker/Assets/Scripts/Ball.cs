@@ -17,7 +17,7 @@ public class Ball : MonoBehaviour {
     bool hasStarted =false;
 
     //Cached component Reference
-    AudioSource myAudioSource;
+    //AudioSource myAudioSource;
     Rigidbody2D myRigidBody2D;
     
 
@@ -25,13 +25,13 @@ public class Ball : MonoBehaviour {
 	void Start ()
     {
         paddleToBallVector = transform.position - paddle1.transform.position;
-        myAudioSource = GetComponent<AudioSource>();
+       // myAudioSource = GetComponent<AudioSource>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
     }
 	
 	
     // Update is called once per frame
-	void Update ()
+	public void Update ()
     {
         //Debug.Log("Ball Speed=" + myRigidBody2D.velocity);
         if (hasStarted == false)
@@ -50,10 +50,11 @@ public class Ball : MonoBehaviour {
         }
     }
 
-    private void LockBallToPaddle()
+    public void LockBallToPaddle()
     {
         Vector2 paddlePos = new Vector2(paddle1.transform.position.x, paddle1.transform.position.y);
         transform.position = paddlePos + paddleToBallVector;
+        hasStarted = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -64,8 +65,8 @@ public class Ball : MonoBehaviour {
         if (hasStarted == true)
         {
            // Debug.Log(collision.gameObject.name);
-            AudioClip clip = ballSounds[UnityEngine.Random.Range(0,ballSounds.Length)];
-            myAudioSource.PlayOneShot(clip);
+            //AudioClip clip = ballSounds[UnityEngine.Random.Range(0,ballSounds.Length)];
+            //myAudioSource.PlayOneShot(clip);
             RegulateVelocity(); //Add random force after collision so that the ball doesn't end up in a loop
         }
     }

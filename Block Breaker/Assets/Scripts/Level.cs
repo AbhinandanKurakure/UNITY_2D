@@ -7,7 +7,7 @@ public class Level : MonoBehaviour {
 
     //cached reference
     [SerializeField] SceneLoader sceneloader;
-
+    
     private void Start()
     {
         sceneloader = FindObjectOfType<SceneLoader>();

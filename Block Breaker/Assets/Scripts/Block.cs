@@ -13,6 +13,7 @@ public class Block : MonoBehaviour {
     //cached Reference
     Level level;
     GameStatus gamestatus;
+    
 
     //state variables
     [SerializeField] int timesHit; //Seralized Only to Debug
@@ -31,6 +32,8 @@ public class Block : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+        
 
         if (tag == "Breakable")
         {
