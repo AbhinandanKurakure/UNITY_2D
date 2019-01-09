@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1600889520368156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9000001, y: 1.9500008, z: 0.22027332}
+  m_LocalPosition: {x: -1.78, y: 3.44, z: 0.12620388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: ee2c3230761da77448cabbd81b065eb7, type: 3}
-  blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 2}
-  maxHits: 3
+  blockSparklesVFX: {fileID: 1128863392217106, guid: ac753ae44f8201d439d72a1f49e3e85d,
+    type: 2}
   hitSprites:
   - {fileID: 21300000, guid: 44dae2c28f3f9a74894372bd12f9bf0f, type: 3}
   - {fileID: 21300000, guid: 9163ef157011d47439dbfe53cc4fcc76, type: 3}
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 90dd9fe652439d849903fa6552f1e74b, type: 3}
-  m_Color: {r: 1, g: 0.47604892, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
