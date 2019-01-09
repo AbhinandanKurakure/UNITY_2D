@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     //config parameters
-    [SerializeField] Paddle paddle1;
+    //[SerializeField] Paddle paddle1;
     [SerializeField] float pushX=2f;
     [SerializeField] float pushY =15f;
     [SerializeField] AudioClip[] ballSounds;
@@ -19,11 +19,15 @@ public class Ball : MonoBehaviour {
     //Cached component Reference
     //AudioSource myAudioSource;
     Rigidbody2D myRigidBody2D;
+
+    Paddle paddle1;
     
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
+        paddle1 = FindObjectOfType<Paddle>();
         paddleToBallVector = transform.position - paddle1.transform.position;
        // myAudioSource = GetComponent<AudioSource>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
@@ -33,6 +37,7 @@ public class Ball : MonoBehaviour {
     // Update is called once per frame
 	public void Update ()
     {
+        paddle1 = FindObjectOfType<Paddle>();
         //Debug.Log("Ball Speed=" + myRigidBody2D.velocity);
         if (hasStarted == false)
         {

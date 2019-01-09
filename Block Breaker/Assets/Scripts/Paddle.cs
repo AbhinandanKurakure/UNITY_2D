@@ -15,6 +15,8 @@ public class Paddle : MonoBehaviour {
 
     //float mousePosInUnits;
 
+    
+
 
     // Use this for initialization
     void Start () {
@@ -25,7 +27,8 @@ public class Paddle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        ballrb = FindObjectOfType<Ball>();
+        gamestatus = FindObjectOfType<GameStatus>();
         //if(FindObjectOfType<GameStatus>().IsAutoPlayEnabled())
         // {
         //      XPos();

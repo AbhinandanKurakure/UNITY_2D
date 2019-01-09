@@ -16,7 +16,7 @@ public class Block : MonoBehaviour {
     
 
     //state variables
-    [SerializeField] int timesHit; //Seralized Only to Debug
+    [SerializeField]public int timesHit; //Seralized Only to Debug
 
     private void Start()
     {

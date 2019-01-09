@@ -8,14 +8,15 @@ public class LoseCollider : MonoBehaviour {
 
     //cached reference
 
-    [SerializeField] Ball ballVar;
-    [SerializeField] int Life;
+   // [SerializeField] Ball ballVar;
+    [SerializeField]public int Life=3;
+    
 
     private void Awake()
     {
-        int loseCollider = FindObjectsOfType<LoseCollider>().Length;
-
-        if (loseCollider > 1)
+       int losecollider = FindObjectsOfType<LoseCollider>().Length;
+        Life = 3;
+        if (losecollider > 1)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
@@ -23,18 +24,27 @@ public class LoseCollider : MonoBehaviour {
         else
             DontDestroyOnLoad(gameObject);
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    public void SelfDestruct()
     {
+        Destroy(gameObject);
+    }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        
         Life--;
 
         if (Life < 1)
+        {
             SceneManager.LoadScene("Game Over");
+            Life = 3;
+            
+        }
         else
         {
-            //ballVar = GetComponent<Ball>(); //Set the Ball back to paddle position
+
+            Ball ballVar = FindObjectOfType<Ball>(); //Set the Ball back to paddle position
             ballVar.LockBallToPaddle();
         }
 

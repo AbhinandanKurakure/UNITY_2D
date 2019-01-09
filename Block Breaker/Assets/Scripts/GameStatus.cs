@@ -13,8 +13,9 @@ public class GameStatus : MonoBehaviour {
     [SerializeField] TextMeshProUGUI scoretext;
     [SerializeField] bool isAutoPlayEnabled;
     [SerializeField] Text textvar;
-    [SerializeField] public int Life = 3;
-
+    [SerializeField] LoseCollider loseColliderVar;
+    [SerializeField] TextMeshProUGUI TextMeshlifeVar;
+    
 
     //state varaiables
     [SerializeField] int currentScore=0;
@@ -35,7 +36,8 @@ public class GameStatus : MonoBehaviour {
     private void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
-        
+        Debug.Log("now in start of Gamestatus Value of Life="+ loseColliderVar.Life.ToString());
+        TextMeshlifeVar.text = "Life:"+loseColliderVar.Life.ToString();
         scoretext.text = "0";
         
     }
@@ -43,18 +45,24 @@ public class GameStatus : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         sceneName = SceneManager.GetActiveScene().name;
+       
         
         if (sceneName == "Game Over")
         {
+            
+            loseColliderVar.Life = 3;
             scoretext.text = "Final Score:" + currentScore.ToString();
             textvar.text = " ";
 
         }
+        else
+        {
+            TextMeshlifeVar.text = "Life:" + loseColliderVar.Life.ToString();
 
-
-        Time.timeScale = gameSpeed;
-        
+            Time.timeScale = gameSpeed;
+        }
 	}
+    
     
     public void AddToScore()
     {
@@ -69,7 +77,9 @@ public class GameStatus : MonoBehaviour {
 
     public void SelfDestroy()
     {
+        loseColliderVar.SelfDestruct();
         Destroy(gameObject);
+        
     }
 
     public bool IsAutoPlayEnabled()
