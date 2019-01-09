@@ -33,6 +33,7 @@ public class Ball : MonoBehaviour {
     // Update is called once per frame
 	void Update ()
     {
+        Debug.Log("Ball Speed=" + myRigidBody2D.velocity);
         if (hasStarted == false)
         {
             LockBallToPaddle();
@@ -57,17 +58,41 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        float x, y;
-        x = UnityEngine.Random.Range(0f, randomFactor);
-        y = UnityEngine.Random.Range(0f, randomFactor);
+        
 
-        Vector2 tweakFactor = new Vector2(x,y);
+        
         if (hasStarted == true)
         {
            // Debug.Log(collision.gameObject.name);
             AudioClip clip = ballSounds[UnityEngine.Random.Range(0,ballSounds.Length)];
             myAudioSource.PlayOneShot(clip);
-            myRigidBody2D.velocity += tweakFactor; //Add random force after collision so that the ball doesn't end up in a loop
+            RegulateVelocity(); //Add random force after collision so that the ball doesn't end up in a loop
         }
+    }
+
+    private void RegulateVelocity()
+    {
+        Vector2 velocityTweak = new Vector2(0f, 0f);
+        float randomValue = UnityEngine.Random.Range(0, randomFactor);
+
+        if (myRigidBody2D.velocity.x >= 0 && myRigidBody2D.velocity.x < randomFactor)
+        {
+            velocityTweak.x += randomValue;
+
+        }
+        else if (myRigidBody2D.velocity.x < 0 && myRigidBody2D.velocity.x >= -(randomFactor))
+        {
+            velocityTweak.x -= randomValue;
+        }
+
+        if (myRigidBody2D.velocity.y >= 0 && myRigidBody2D.velocity.y < randomFactor)
+        {
+            velocityTweak.y += randomValue;
+        }
+        else if (myRigidBody2D.velocity.y < 0 && myRigidBody2D.velocity.y >= -(randomFactor))
+        {
+            velocityTweak.y -= randomValue;
+        }
+        myRigidBody2D.velocity += velocityTweak;
     }
 }
